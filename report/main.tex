@@ -1,9 +1,6 @@
 \documentclass{tufte-handout}
 
-\title{An Example of the Usage of the Tufte-Handout Style\thanks{Inspired by Edward~R. Tufte!}}
-
-\author[The Tufte-LaTeX Developers]{The Tufte-\LaTeX\ Developers}
-
+%%Packages
 \usepackage{graphicx} % allow embedded images
   \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
   \graphicspath{{graphics/}} % set of paths to search for images
@@ -15,6 +12,18 @@
 \usepackage{fancyvrb} % extended verbatim environments
   \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
 
+%%Theme
+\definecolor{NordBg}{HTML}{eceff4}
+\definecolor{NordFg}{HTML}{2e3440}
+
+\definecolor{NordBlue}{HTML}{5e81ac}
+\definecolor{NordGreen}{HTML}{a3be8c}
+\definecolor{NordRed}{HTML}{bf616a}
+\definecolor{NordOrange}{HTML}{d08770}
+\definecolor{NordYellow}{HTML}{ebcb8b}
+\definecolor{NordPurple}{HTML}{b48ead}
+
+%%Custom commands
 % Standardize command font styles and environments
 \newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
 \newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
@@ -25,6 +34,10 @@
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
 \newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
 
+%%Metadata
+\title{An Example of the Usage of the Tufte-Handout Style\thanks{Inspired by Edward~R. Tufte!}}
+
+\author[The Tufte-LaTeX Developers]{The Tufte-\LaTeX\ Developers}
 \begin{document}
 
 \maketitle% this prints the handout title, author, and date
