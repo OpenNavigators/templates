@@ -5,11 +5,12 @@
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
-\usepackage{pgfplots}
-\usepgfplotslibrary{dateplot}
 \usepackage{xspace}
 
-%%Theme
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\usepgfplotslibrary{colormaps}
+%%Themes
 % Base theme is metropolis
 \usetheme{metropolis}
 
@@ -18,17 +19,39 @@
 \definecolor{NordFg}{HTML}{2e3440}
 
 \definecolor{NordBlue}{HTML}{5e81ac}
+\definecolor{NordTeal}{HTML}{88c0d0}
+
 \definecolor{NordGreen}{HTML}{a3be8c}
 \definecolor{NordRed}{HTML}{bf616a}
 \definecolor{NordOrange}{HTML}{d08770}
 \definecolor{NordYellow}{HTML}{ebcb8b}
 \definecolor{NordPurple}{HTML}{b48ead}
 
+% Update colors in beamer
 \setbeamercolor{normal text}{fg=NordFg, bg=NordBg}
-\setbeamercolor{alerted text}{fg=NordRed}
+\setbeamercolor{alerted text}{fg=NordTeal}
 \setbeamercolor{example text}{fg=NordBlue}
 
+% Update colors in PGF
+\pgfplotsset{
+    colormap={hotnord}{
+        rgb255=(235, 205, 139)
+        rgb255=(191, 97, 106)
+    },
+    colormap name=hotnord,
+}
 
+\pgfplotscreateplotcyclelist{nordbar}{%
+    {NordBlue,fill=NordBlue},
+    {NordRed,fill=NordRed},
+    {NordGreen,fill=NordGreen},
+    {NordOrange,fill=NordOrange}}
+
+\pgfplotscreateplotcyclelist{nordline}{%
+    {NordBlue,mark=*},
+    {NordRed,mark=x},
+    {NordGreen,mark=square},
+    {NordOrange,mark=+}}
 %%Custom commands
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
@@ -266,6 +289,7 @@ or show \textbf{bold} results.\end{verbatim}
         mlineplot,
         width=0.9\textwidth,
         height=6cm,
+        cycle list name=nordline
       ]
 
         \addplot {sin(deg(x))};
@@ -275,6 +299,7 @@ or show \textbf{bold} results.\end{verbatim}
     \end{tikzpicture}
   \end{figure}
 \end{frame}
+
 \begin{frame}{Bar charts}
   \begin{figure}
     \begin{tikzpicture}
@@ -284,6 +309,7 @@ or show \textbf{bold} results.\end{verbatim}
         ylabel={Bar},
         width=0.9\textwidth,
         height=6cm,
+        cycle list name=nordbar
       ]
 
       \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
@@ -296,12 +322,24 @@ or show \textbf{bold} results.\end{verbatim}
     \end{tikzpicture}
   \end{figure}
 \end{frame}
+
+\begin{frame}{Surf plots}
+  \begin{figure}
+        \begin{tikzpicture}
+        \begin{axis}[
+            hide axis,
+            colormap name=hotnord]
+            \addplot3 [domain=-1.5:1.5,surf, shader=faceted] {-exp(-x^2-y^2)};
+        \end{axis}
+    \end{tikzpicture}
+  \end{figure}
+\end{frame}
+
 \begin{frame}{Quotes}
   \begin{quote}
     Veni, Vidi, Vici
   \end{quote}
 \end{frame}
-
 {%
 \setbeamertemplate{frame footer}{My custom footer}
 \begin{frame}[fragile]{Frame footer}
