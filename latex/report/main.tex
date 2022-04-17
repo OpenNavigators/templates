@@ -17,39 +17,6 @@
     \usepgfplotslibrary{dateplot}
     \usepgfplotslibrary{colormaps}
 
-%%Theme
-\definecolor{NordBg}{HTML}{eceff4}
-\definecolor{NordFg}{HTML}{2e3440}
-
-\definecolor{NordBlue}{HTML}{5e81ac}
-\definecolor{NordLightBlue}{HTML}{81a1c1}
-\definecolor{NordTeal}{HTML}{88c0d0}
-\definecolor{NordLightGreen}{HTML}{8fbcbb}
-
-\definecolor{NordRed}{HTML}{bf616a}
-\definecolor{NordOrange}{HTML}{d08770}
-\definecolor{NordYellow}{HTML}{ebcb8b}
-\definecolor{NordGreen}{HTML}{a3be8c}
-\definecolor{NordPurple}{HTML}{b48ead}
-
-% Update colors in PGF
-\pgfplotsset{
-    colormap={hotnord}{rgb255=(235, 205, 139), rgb255=(191, 97, 106)},
-    colormap name=hotnord,
-}
-
-\pgfplotscreateplotcyclelist{nordbar}{%
-    {NordBlue,fill=NordBlue},
-    {NordRed,fill=NordRed},
-    {NordGreen,fill=NordGreen},
-    {NordOrange,fill=NordOrange}}
-
-\pgfplotscreateplotcyclelist{nordline}{%
-    {NordBlue,mark=*},
-    {NordRed,mark=x},
-    {NordGreen,mark=square},
-    {NordOrange,mark=+}}
-
 %%Custom commands
 % Standardize command font styles and environments
 \newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically

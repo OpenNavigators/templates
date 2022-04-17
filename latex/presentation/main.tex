@@ -13,44 +13,8 @@
 %%Themes
 % Base theme is metropolis
 \usetheme{metropolis}
+\usecolortheme{owl}
 
-% Give it a Nord twist
-\definecolor{NordBg}{HTML}{eceff4}
-\definecolor{NordFg}{HTML}{2e3440}
-
-\definecolor{NordBlue}{HTML}{5e81ac}
-\definecolor{NordLightBlue}{HTML}{81a1c1}
-\definecolor{NordTeal}{HTML}{88c0d0}
-\definecolor{NordLightGreen}{HTML}{8fbcbb}
-
-\definecolor{NordRed}{HTML}{bf616a}
-\definecolor{NordOrange}{HTML}{d08770}
-\definecolor{NordYellow}{HTML}{ebcb8b}
-\definecolor{NordGreen}{HTML}{a3be8c}
-\definecolor{NordPurple}{HTML}{b48ead}
-
-% Update colors in beamer
-\setbeamercolor{normal text}{fg=NordFg, bg=NordBg}
-\setbeamercolor{example text}{fg=NordTeal}
-\setbeamercolor{alerted text}{fg=NordBlue}
-
-% Update colors in PGF
-\pgfplotsset{
-    colormap={hotnord}{rgb255=(235, 205, 139), rgb255=(191, 97, 106)},
-    colormap name=hotnord,
-}
-
-\pgfplotscreateplotcyclelist{nordbar}{%
-    {NordBlue,fill=NordBlue},
-    {NordRed,fill=NordRed},
-    {NordGreen,fill=NordGreen},
-    {NordOrange,fill=NordOrange}}
-
-\pgfplotscreateplotcyclelist{nordline}{%
-    {NordBlue,mark=*},
-    {NordRed,mark=x},
-    {NordGreen,mark=square},
-    {NordOrange,mark=+}}
 %%Custom commands
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
@@ -288,7 +252,6 @@ or show \textbf{bold} results.\end{verbatim}
         mlineplot,
         width=0.9\textwidth,
         height=6cm,
-        cycle list name=nordline
       ]
 
         \addplot {sin(deg(x))};
@@ -308,7 +271,6 @@ or show \textbf{bold} results.\end{verbatim}
         ylabel={Bar},
         width=0.9\textwidth,
         height=6cm,
-        cycle list name=nordbar
       ]
 
       \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
@@ -318,18 +280,6 @@ or show \textbf{bold} results.\end{verbatim}
       \legend{lorem, ipsum, dolor}
 
       \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Surf plots}
-  \begin{figure}
-        \begin{tikzpicture}
-        \begin{axis}[
-            hide axis,
-            colormap name=hotnord]
-            \addplot3 [domain=-1.5:1.5,surf, shader=faceted] {-exp(-x^2-y^2)};
-        \end{axis}
     \end{tikzpicture}
   \end{figure}
 \end{frame}
